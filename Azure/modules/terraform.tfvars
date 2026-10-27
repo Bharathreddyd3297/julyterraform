@@ -1,0 +1,6 @@
+rgname = "rg-demo-dev"
+location = "canadacentral"
+storage_account_name = "groww34sa"
+vm_name = "vm001-dev"
+admin_password = "P@ssword1234"
+admin_username = "devopsuser"
