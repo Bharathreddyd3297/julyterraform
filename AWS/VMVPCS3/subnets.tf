@@ -1,5 +1,5 @@
 resource "aws_subnet" "subnet" {
-  count = length(var.subnet_cidrs)
+  count = length(var.subnet_cidrs)--> 1
   vpc_id = aws_vpc.vpc.id
   cidr_block = var.subnet_cidrs[count.index]
   availability_zone = "${var.aws_region}${count.index == 0 || count.index == 2 ? "a" : "b"}"

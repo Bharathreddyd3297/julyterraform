@@ -1,0 +1,87 @@
+HCL--> Hashicorp configuration language
+
+
+Blocks--> define a particular terraform object
+Labels--> identify the Blocks
+Arguments/Attributes--> key-value pairs
+Expressions --> Provide values, calculation, condition, reference 
+
+# this is a single line comment
+// this is also a single line comment
+/* this is
+multi
+line
+comment 
+*/
+
+
+DataTypes--> 
+String--> "canadacentral"  "21st oct 2026"  "dev"
+Number--> 2 4 10
+Boolen --> true / false
+list 
+
+variable "fruits"
+default = ["Apple", "Banana", "Mango"]
+fruits[0] = Apple
+fruits[1] =  Banana
+
+dev = "standard_s2"
+qa = "standard_s2"
+prod = "standard_s4"
+
+
+variable "environment"
+type = String
+default = "dev"
+
+
+name = "rg -${var.environment}"
+
+
+
+
+
+
+
+resource "azurerm_resource_group" "my_demo_rg6" {
+  location = "eastus"
+  name     = "my-demo-rg1"
+
+  tags = {
+    name        = "development"
+    owner       = "Kiran"
+    Createdby   = "Bharath"
+    Createdon   = "21st Oct 2026"
+    environment = "Development"
+  }
+}
+
+
+
+availability_zone = "${var.aws_region}${count.index == 0 || count.index == 2 ? "a" : "b"}"
+
+
+condition ? true_value : false_value
+
+
+count.index == 0 || count.index == 2 ? "a" : "b"
+
+
+instance_type = var.environment == dev ? "t2.micro" : "t3.small"
+
+length()
+
+count = length(var.subnet_cidrs)
+
+length(["A","B"])
+
+2
+
+upper("terraform")
+file()
+
+
+resource "aws_subnet" "subnet" {
+  count = length(var.subnet_cidrs)
+  vpc_id = aws_vpc.vpc.id

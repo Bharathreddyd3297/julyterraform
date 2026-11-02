@@ -33,3 +33,5 @@ variable "bucket" {
 variable "bucket_count" {
   type = number
 }
+
+

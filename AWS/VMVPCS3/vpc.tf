@@ -8,3 +8,7 @@ resource "aws_vpc" "vpc" {
     #true
   }
 }
+
+
+# import
+# provisioner
